@@ -1,0 +1,14 @@
+<h3> Past 30 days transaction </h3>
+<div>
+    <div *ngFor="let item of items">
+        <ul>
+            <li>ItemID: {{item.item_id}}</li>
+            <li>Name: {{item.item_name}}</li>
+            <li>Quantity Bought: {{item.quantity}}</li>
+            <li>Date of purchase: {{item.DOP | date}}</li>
+        </ul>
+    </div>
+    <div *ngIf="notBought">
+        You haven't bought anything.
+    </div>
+</div>

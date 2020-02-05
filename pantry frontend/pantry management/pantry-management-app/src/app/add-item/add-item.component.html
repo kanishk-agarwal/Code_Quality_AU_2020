@@ -1,0 +1,15 @@
+<h1>Add Item</h1>
+<div>
+    <form>
+        Item ID <input type="number" [(ngModel)]="itemID" [ngModelOptions]="{standalone: true}"/>
+       <br><br>Name <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"/> 
+        <br><br>Quantity <input type="number" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}"/>
+        <br><br><button (click)="addItem()">Add item</button>
+    </form>
+</div>
+<div *ngIf="itemAdded && clicked">
+    <h3>Item added!</h3>
+</div>
+<div *ngIf="!itemAdded && clicked">
+    <h3>Item id already exists</h3>
+</div>

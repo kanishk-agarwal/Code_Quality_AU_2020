@@ -1,0 +1,26 @@
+<h3> Which item do you want to buy? </h3>
+<div>
+    <div *ngFor="let item of items">
+        <ul>
+            <li>ItemID: {{item.itemId}}</li>
+            <li>Name: {{item.name}}</li>
+            <li>Quantity available: {{item.quantity_available}}</li>
+            <li>Quantity sold: {{item.quantity_sold}}</li>
+        </ul>
+    </div>
+    <div>
+        <form>
+            Enter ItemID <input type="number" [(ngModel)]="itemID" [ngModelOptions]="{standalone: true}"> 
+            Enter quantity <input type="number" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}">
+            <br>
+            <button (click)="buyItem()">Buy item</button>
+        </form>
+    </div>
+    <div *ngIf="boughtItem && clicked">
+        <h3>Item bought by you!</h3>
+    </div>
+    <div *ngIf="!boughtItem && clicked">
+        <h3>Invalid inputs!
+        </h3>
+    </div>
+</div>

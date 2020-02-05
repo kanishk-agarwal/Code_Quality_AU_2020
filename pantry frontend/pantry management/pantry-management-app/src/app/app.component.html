@@ -1,0 +1,37 @@
+
+   <base href="/">
+   <h1>
+      Login
+    </h1>
+    <div *ngIf="!validUser && loginClicked">
+      <h4>Invalid username/password entered</h4>
+    </div>
+    <div>
+      <form>
+        Username <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"/><br><br>
+        Password <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"/><br><br>
+        <button class="login-button" (click)="validateUser()">Login</button><br>
+      </form>
+    </div>
+    <div>
+      <a (click)="goToSignUp()"> Sign Up </a><br>
+    </div>
+    <div *ngIf="validUser && loginClicked && isLoggedIn()">
+      <nav>
+        <a  (click)="goToUserDetails()"> User Details </a>
+        <a  (click)="goTobuyItemPage()"> Buy items</a>
+        <a  (click)="goToViewItemsBoughtPage()">View Items Bought</a>
+        <a  (click)="goToAddItemPage()">Add item</a>
+        <a  (click)="goToUpdateItemPage()">Update item quantity</a>
+        <a  (click)="goToDeleteItemPage()">Delete item</a>
+      </nav>
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <router-outlet></router-outlet><br><br>
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <a (click)="logout()">Logout</a>
+    </div>
+    <div *ngIf="!isLoggedIn() && logoutClicked">
+      <h3>Logged out</h3>
+    </div>

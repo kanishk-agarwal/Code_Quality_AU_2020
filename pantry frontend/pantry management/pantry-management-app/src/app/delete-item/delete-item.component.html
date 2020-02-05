@@ -1,0 +1,21 @@
+<h3>Select an item to delete</h3>
+<div>
+    <div *ngFor="let item of items">
+        <ul>
+            <li>ItemID: {{item.itemId}}</li>
+            <li>Name: {{item.name}}</li>
+            <li>Quantity available: {{item.quantity_available}}</li>
+            <li>Quantity sold: {{item.quantity_sold}}</li>
+        </ul>
+    </div>
+    <form>
+        Enter itemID <input type="number" [(ngModel)]="item_id" [ngModelOptions]="{standalone: true}"><br>
+        <button (click)="deleteItem()">Delete Item</button>
+    </form>
+    <div *ngIf="itemDeleted && clicked">
+        <h3>Item successfully deleted</h3>
+    </div>
+    <div *ngIf="!itemDeleted && clicked">
+        <h3>Invalid inputs!</h3>
+    </div>
+</div>
